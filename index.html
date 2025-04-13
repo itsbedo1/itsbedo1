@@ -1017,7 +1017,19 @@ Pavement Design - Multiple Choice Questions</label>
       document.getElementById("page" + pageIndex).classList.remove("active");
       document.getElementById("page" + (pageIndex + 1)).classList.add("active");
     } else {
-      alert("You need at least 5 correct answers to proceed.");
+      
+      alert("اقرا زين، لازم تحل خمسة صح حتى تشوف بقية الأسئلة 🫡");
+      questions.forEach(q => {
+        const radios = q.querySelectorAll("input[type='radio']");
+        const feedback = q.querySelector(".feedback");
+        radios.forEach(r => {
+          r.checked = false;
+          r.disabled = false;
+        });
+        feedback.textContent = "";
+        feedback.className = "feedback";
+      });
+
     }
   }
 
